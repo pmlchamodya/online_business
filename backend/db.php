@@ -1,11 +1,14 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "online_business_db";
+$servername = "localhost";
+$username = "root";
+$password = ""; // default WAMP password blank
+$database = "online_business_db";
 
-$conn = new mysqli($host, $user, $pass, $db);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
 if ($conn->connect_error) {
-    die("DB connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
