@@ -1,0 +1,128 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: url("online.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Wrapper */
+.wrap {
+  width: min(92%, 1100px);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header */
+.site-header {
+  background: rgba(0,0,0,0.7);
+  padding: 20px 0;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.main-nav a {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.main-nav a:hover,
+.main-nav .active {
+  background: #0b6efd;
+  color: #fff;
+}
+
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px 25px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.container h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.container p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #d1d5db;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 0 2px #0b6efd;
+}
+.contact-form textarea {
+  resize: vertical;
+}
+.contact-form button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #0b6efd;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.contact-form button:hover {
+  background: #094bb5;
+}
+
+/* Footer */
+.site-footer {
+  background: rgba(0,0,0,0.7);
+  padding: 15px 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width:768px){
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .container {
+    padding: 25px 15px;
+    margin: 30px 15px;
+  }
+}

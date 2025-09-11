@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home — Online Business</title>
+    <link rel="stylesheet" href="update_order.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <h1 class="brand">Online Business</h1>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="admin.html">Admin</a>
+          <a class="active" href="update_order.html">Update_Order</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="wrap hero-content">
+        <h2>Update Order</h2>
+        <form action="add_product.php" method="POST">
+          <input type="hidden" name="action" value="update_order" />
+
+          <label>Order ID:</label>
+          <input type="number" name="id" required /><br /><br />
+
+          <label>Status:</label>
+          <select name="status" required>
+            <option value="Pending">Pending</option>
+            <option value="Processing">Processing</option>
+            <option value="Shipped">Shipped</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option></select
+          ><br /><br />
+
+          <button type="submit">Update Order</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>&copy; 2025 Online Business. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

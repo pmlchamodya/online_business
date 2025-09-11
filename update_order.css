@@ -1,0 +1,132 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inter", Arial, sans-serif;
+  color: #fff;
+  background: url("online.jpg") no-repeat center center fixed;
+  background-size: cover;
+  line-height: 1.6;
+}
+
+/* Wrapper */
+.wrap {
+  width: min(92%, 1100px);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header */
+.site-header {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 0;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.main-nav a {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.main-nav a:hover,
+.main-nav .active {
+  background: #0b6efd;
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 20px;
+}
+.hero-content {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 40px 25px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #d1d5db;
+}
+.btn {
+  display: inline-block;
+  background: #0b6efd;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #094bb5;
+}
+
+/* Footer */
+.site-footer {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px 0;
+  text-align: center;
+  font-size: 0.95rem;
+  position: relative;
+}
+.site-footer p {
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-content {
+    padding: 25px 15px;
+  }
+  .hero-content h2 {
+    font-size: 1.6rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
