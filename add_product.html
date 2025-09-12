@@ -10,21 +10,21 @@
       rel="stylesheet"
     />
   </head>
-  <body>
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <h1 class="brand">Online Business</h1>
-        <nav class="main-nav">
-          <a href="index.html">Home</a>
-          <a href="products.html">Products</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-          <a href="admin.html">Admin</a>
-          <a class="active" href="add_product.html">Add_product</a>
-        </nav>
-      </div>
-    </header>
 
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <h1 class="brand">Online Business</h1>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin</a>
+        <a class="active" href="add_product.html">Add_product</a>
+      </nav>
+    </div>
+  </header>
+  <body>
     <main class="hero">
       <div class="wrap hero-content">
         <h2>Add Product</h2>
@@ -46,10 +46,6 @@
             id="priceInput"
             required
           /><br /><br />
-
-          <script>
-            document.getElementById("priceInput").placeholder = "$0.00";
-          </script>
 
           <label>Stock:</label>
           <input type="number" name="stock" required /><br /><br />

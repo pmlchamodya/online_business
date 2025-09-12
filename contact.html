@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Online Business</title>
-  <link rel="stylesheet" href="contact.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Online Business</title>
+    <link rel="stylesheet" href="contact.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
   <header class="site-header">
     <div class="wrap header-inner">
       <h1 class="brand">Online Business</h1>
@@ -20,23 +23,31 @@
       </nav>
     </div>
   </header>
+  <body>
+    <main class="container">
+      <h2>Contact Us</h2>
+      <p>
+        We’d love to hear from you! Fill out the form below and we’ll get back
+        to you as soon as possible.
+      </p>
 
-  <main class="container">
-    <h2>Contact Us</h2>
-    <p>We’d love to hear from you! Fill out the form below and we’ll get back to you as soon as possible.</p>
-    
-    <form method="POST" action="backend/contact.php" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </main>
+      <form method="POST" action="backend/contact.php" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          rows="6"
+          required
+        ></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p>&copy; 2025 Online Business. All rights reserved.</p>
-    </div>
-  </footer>
-</body>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>&copy; 2025 Online Business. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>
