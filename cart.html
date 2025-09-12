@@ -11,6 +11,7 @@
     />
   </head>
   <body>
+    <!-- HEADER -->
     <header class="site-header">
       <div class="wrap header-inner">
         <h1 class="brand">Online Business</h1>
@@ -25,16 +26,19 @@
       </div>
     </header>
 
+    <!-- MAIN CART -->
     <main class="container">
       <h2>Your Shopping Cart</h2>
       <div id="cartItems"></div>
       <div id="cartTotal"></div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
       <p>&copy; 2025 Online Business. All rights reserved.</p>
     </footer>
 
+    <!-- CART SCRIPT -->
     <script>
       function loadCart() {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -50,16 +54,13 @@
         }
 
         cart.forEach((item, index) => {
-          const itemDiv = document.createElement("div");
-          itemDiv.className = "cart-item";
-
-          // If quantity not set yet, set 1
           if (!item.qty) item.qty = 1;
-
           const price = parseFloat(item.price);
           const itemTotal = price * item.qty;
           total += itemTotal;
 
+          const itemDiv = document.createElement("div");
+          itemDiv.className = "cart-item";
           itemDiv.innerHTML = `
           <img src="${item.image}" alt="${item.name}">
           <div class="info">
@@ -72,7 +73,6 @@
           </div>
           <button class="removeBtn" data-index="${index}">Remove</button>
         `;
-
           cartItemsDiv.appendChild(itemDiv);
         });
 
@@ -81,19 +81,19 @@
         // Quantity change event
         document.querySelectorAll(".qtyInput").forEach((input) => {
           input.addEventListener("change", () => {
-            const i = input.getAttribute("data-index");
+            const i = input.dataset.index;
             let newQty = parseInt(input.value);
             if (newQty < 1) newQty = 1;
             cart[i].qty = newQty;
             localStorage.setItem("cart", JSON.stringify(cart));
-            loadCart(); // refresh
+            loadCart();
           });
         });
 
-        // Remove event
+        // Remove item event
         document.querySelectorAll(".removeBtn").forEach((btn) => {
           btn.addEventListener("click", () => {
-            const i = btn.getAttribute("data-index");
+            const i = btn.dataset.index;
             cart.splice(i, 1);
             localStorage.setItem("cart", JSON.stringify(cart));
             loadCart();
