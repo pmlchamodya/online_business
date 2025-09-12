@@ -9,21 +9,43 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Cart icon styling */
+      .cart-icon {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        filter: invert(1);
+        transition: transform 0.2s;
+      }
+      .cart-icon:hover {
+        transform: scale(1.2);
+      }
+      .main-nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+    </style>
   </head>
-
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <h1 class="brand">Online Business</h1>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a class="active" href="contact.html">Contact</a>
-        <a href="admin.html">Admin</a>
-      </nav>
-    </div>
-  </header>
   <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <h1 class="brand">Online Business</h1>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="about.html">About</a>
+          <a class="active" href="contact.html">Contact</a>
+          <a href="cart.html">
+            <img src="uploads/cart.png" alt="Cart" class="cart-icon" />
+          </a>
+          <a href="admin.html">Admin</a>
+        </nav>
+      </div>
+    </header>
+
     <main class="container">
       <h2>Contact Us</h2>
       <p>
@@ -42,12 +64,35 @@
         ></textarea>
         <button type="submit">Send Message</button>
       </form>
+
+      <!-- Sample Cart Button -->
+      <button id="addSampleCartBtn" class="btn" style="margin-top: 25px">
+        Add Sample Product to Cart
+      </button>
     </main>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <p>&copy; 2025 Online Business. All rights reserved.</p>
       </div>
     </footer>
+
+    <script>
+      const addBtn = document.getElementById("addSampleCartBtn");
+      addBtn.addEventListener("click", () => {
+        const sampleProduct = {
+          id: 1,
+          name: "Sample Product",
+          price: 100.0,
+          stock: 10,
+          image: "uploads/sample.jpg",
+        };
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(sampleProduct);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Sample product added to cart!");
+      });
+    </script>
   </body>
 </html>

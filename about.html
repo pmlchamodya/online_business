@@ -9,6 +9,24 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Cart icon styling */
+      .cart-icon {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        filter: invert(1);
+        transition: transform 0.2s;
+      }
+      .cart-icon:hover {
+        transform: scale(1.2);
+      }
+      .main-nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER -->
@@ -20,6 +38,9 @@
           <a href="products.html">Products</a>
           <a class="active" href="about.html">About</a>
           <a href="contact.html">Contact</a>
+          <a href="cart.html">
+            <img src="uploads/cart.png" alt="Cart" class="cart-icon" />
+          </a>
           <a href="admin.html">Admin</a>
         </nav>
       </div>
@@ -42,6 +63,10 @@
               promise.
             </p>
             <a class="btn" href="products.html">Browse Products</a>
+            <!-- Sample Add to Cart button -->
+            <button id="addSampleCartBtn" class="btn" style="margin-top: 20px">
+              Add Sample Product to Cart
+            </button>
           </div>
         </div>
       </section>
@@ -80,20 +105,22 @@
         <p>
           <mark>Small, skilled, and customer-oriented.</mark>
         </p>
-
         <div class="team-grid">
           <div class="member">
-            <img src="S.%20Perera.jpg" alt="Founder — S. Perera" />
+            <img src="uploads/S. Perera.jpg" alt="Founder — S. Perera" />
             <h4>S. Perera</h4>
             <p class="role">Founder & CEO</p>
           </div>
           <div class="member">
-            <img src="A.%20Silva.jpg" alt="Operations — A. Silva" />
+            <img src="uploads/A. Silva.jpg" alt="Operations — A. Silva" />
             <h4>A. Silva</h4>
             <p class="role">Operations Lead</p>
           </div>
           <div class="member">
-            <img src="N.%20Fernando.jpg" alt="Customer support — N. Fernando" />
+            <img
+              src="uploads/N. Fernando.jpg"
+              alt="Customer support — N. Fernando"
+            />
             <h4>N. Fernando</h4>
             <p class="role">Customer Support</p>
           </div>
@@ -120,5 +147,22 @@
         </address>
       </div>
     </footer>
+
+    <script>
+      const addBtn = document.getElementById("addSampleCartBtn");
+      addBtn.addEventListener("click", () => {
+        const sampleProduct = {
+          id: 1,
+          name: "Sample Product",
+          price: 100.0,
+          stock: 10,
+          image: "uploads/sample.jpg",
+        };
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(sampleProduct);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Sample product added to cart!");
+      });
+    </script>
   </body>
 </html>

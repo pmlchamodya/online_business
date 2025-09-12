@@ -3,46 +3,124 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home — Online Business</title>
+    <title>Delete Products — Online Business</title>
     <link rel="stylesheet" href="delete_product.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <h1 class="brand">Online Business</h1>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html">Admin</a>
+        <a class="active" href="delete_product.html">Delete_product</a>
+      </nav>
+    </div>
+  </header>
+
   <body>
-    <header class="site-header">
-      <div class="wrap header-inner">
-        <h1 class="brand">Online Business</h1>
-        <nav class="main-nav">
-          <a href="index.html">Home</a>
-          <a href="products.html">Products</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-          <a href="admin.html">Admin</a>
-          <a class="active" href="delete_product.html">delete_product</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="hero">
-      <div class="wrap hero-content">
-        <h2>Delete Product</h2>
-        <form action="add_product.php" method="POST">
-          <input type="hidden" name="action" value="delete" />
-
-          <label>Product ID:</label>
-          <input type="number" name="id" required /><br /><br />
-
-          <button type="submit">Delete Product</button>
-        </form>
-      </div>
+    <main class="container">
+      <h2>Delete Products</h2>
+      <div id="productGrid" class="product-grid"></div>
     </main>
 
-    <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <p>&copy; 2025 Online Business. All rights reserved.</p>
+    <!-- Delete Modal -->
+    <div id="deleteModal" class="edit-modal">
+      <div class="edit-modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="edit-wrapper">
+          <div class="edit-image">
+            <img
+              id="productImg"
+              src="uploads/clothes.jpg"
+              alt="Product Image"
+            />
+          </div>
+          <div class="edit-form">
+            <p><strong>ID:</strong> <span id="productId"></span></p>
+            <p><strong>Name:</strong> <span id="productName"></span></p>
+            <p><strong>Price:</strong> Rs.<span id="productPrice"></span></p>
+            <p><strong>Stock:</strong> <span id="productStock"></span></p>
+            <button id="deleteBtn">Delete Product</button>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Online Business. All rights reserved.</p>
     </footer>
+
+    <script>
+      const modal = document.getElementById("deleteModal");
+      const closeBtn = document.querySelector(".close-modal");
+      const deleteBtn = document.getElementById("deleteBtn");
+
+      closeBtn.onclick = () => {
+        modal.style.display = "none";
+      };
+      window.onclick = (e) => {
+        if (e.target == modal) modal.style.display = "none";
+      };
+
+      // Fetch products
+      fetch("./backend/delete_product.php")
+        .then((res) => res.json())
+        .then((data) => {
+          const grid = document.getElementById("productGrid");
+          if (data.length === 0) {
+            grid.innerHTML = "<p>No products found.</p>";
+          } else {
+            data.forEach((p) => {
+              const card = document.createElement("div");
+              card.className = "product-card";
+              card.innerHTML = `
+              <img src="${p.image}" alt="${p.name}">
+              <h3>${p.name}</h3>
+              <p class="price">Rs.${parseFloat(p.price).toFixed(2)}</p>
+            `;
+              grid.appendChild(card);
+
+              card.querySelector("img").addEventListener("click", () => {
+                modal.style.display = "block";
+                document.getElementById("productId").innerText = p.id;
+                document.getElementById("productName").innerText = p.name;
+                document.getElementById("productPrice").innerText = p.price;
+                document.getElementById("productStock").innerText = p.stock;
+                document.getElementById("productImg").src = p.image
+                  ? p.image
+                  : "uploads/clothes.jpg";
+
+                deleteBtn.onclick = () => {
+                  if (confirm(`Are you sure you want to delete "${p.name}"?`)) {
+                    fetch("./backend/delete_product.php", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/x-www-form-urlencoded",
+                      },
+                      body: `delete_id=${p.id}`,
+                    })
+                      .then((res) => res.text())
+                      .then((msg) => {
+                        alert(msg);
+                        modal.style.display = "none";
+                        location.reload();
+                      })
+                      .catch((err) => console.error(err));
+                  }
+                };
+              });
+            });
+          }
+        })
+        .catch((err) => console.error("Error loading products:", err));
+    </script>
   </body>
 </html>

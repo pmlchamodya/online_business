@@ -9,6 +9,24 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Cart icon styling */
+      .cart-icon {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        filter: invert(1); /* white icon on dark bg */
+        transition: transform 0.2s;
+      }
+      .cart-icon:hover {
+        transform: scale(1.2);
+      }
+      .main-nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -19,6 +37,9 @@
           <a class="active" href="products.html">Products</a>
           <a href="about.html">About</a>
           <a href="contact.html">Contact</a>
+          <a href="cart.html">
+            <img src="uploads/cart.png" alt="Cart" class="cart-icon" />
+          </a>
           <a href="admin.html">Admin</a>
         </nav>
       </div>
@@ -38,6 +59,8 @@
           <h3 id="modalName"></h3>
           <p id="modalPrice"></p>
           <p id="modalStock"></p>
+          <button id="addToCartBtn">Add to Cart</button>
+          <button id="addOrderBtn">Add Order</button>
         </div>
       </div>
     </div>
@@ -47,6 +70,8 @@
     </footer>
 
     <script>
+      let currentProduct = null;
+
       fetch("./backend/products.php")
         .then((res) => res.json())
         .then((data) => {
@@ -56,6 +81,8 @@
           const modalName = document.getElementById("modalName");
           const modalPrice = document.getElementById("modalPrice");
           const modalStock = document.getElementById("modalStock");
+          const addToCartBtn = document.getElementById("addToCartBtn");
+          const addOrderBtn = document.getElementById("addOrderBtn");
           const closeBtn = document.querySelector(".modal .close");
 
           if (data.length === 0) {
@@ -79,9 +106,30 @@
                 modalPrice.textContent =
                   "Price: Rs." + parseFloat(p.price).toFixed(2);
                 modalStock.textContent = "Stock: " + p.stock;
+                currentProduct = p;
               });
             });
           }
+
+          // Add to Cart
+          addToCartBtn.addEventListener("click", () => {
+            if (!currentProduct) return;
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(currentProduct);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Product added to cart!");
+            modal.style.display = "none";
+          });
+
+          // Add Order (go to order.html)
+          addOrderBtn.addEventListener("click", () => {
+            if (!currentProduct) return;
+            localStorage.setItem(
+              "selectedOrder",
+              JSON.stringify(currentProduct)
+            );
+            window.location.href = "order.html";
+          });
 
           // Close modal
           closeBtn.onclick = () => {

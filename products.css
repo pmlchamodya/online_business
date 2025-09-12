@@ -12,6 +12,13 @@ body {
   line-height: 1.6;
 }
 
+/* Wrapper */
+.wrap {
+  width: min(92%, 1100px);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 /* Header */
 .site-header {
   background: rgba(0, 0, 0, 0.8);
@@ -175,16 +182,38 @@ body {
   font-size: 1.2rem;
   max-width: 400px;
 }
-
 #modalInfo h3 {
   font-size: 1.8rem;
   margin-bottom: 12px;
 }
-
 #modalInfo p {
   margin: 6px 0;
   font-weight: 600;
   color: #0b6efd;
+}
+#modalInfo button {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#modalInfo button#addToCartBtn {
+  background: #0b6efd;
+  color: #fff;
+}
+#modalInfo button#addToCartBtn:hover {
+  background: #094bb5;
+}
+#modalInfo button#addOrderBtn {
+  background: #28a745;
+  color: #fff;
+}
+#modalInfo button#addOrderBtn:hover {
+  background: #1e7e34;
 }
 
 .modal .close {
@@ -197,7 +226,6 @@ body {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .modal .close:hover {
   transform: rotate(90deg);
   color: #0b6efd;
@@ -223,4 +251,16 @@ body {
   #modalInfo p {
     font-size: 1rem;
   }
+}
+
+/* Cart Icon */
+.cart-icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  filter: invert(1);
+  transition: transform 0.2s;
+}
+.cart-icon:hover {
+  transform: scale(1.2);
 }

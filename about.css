@@ -10,7 +10,7 @@ body {
   background: url("online.jpg") no-repeat center center fixed;
   background-size: cover;
   line-height: 1.8;
-  font-size: 18px; /* 👈 default font size increased */
+  font-size: 18px;
 }
 
 /* Wrapper */
@@ -36,7 +36,7 @@ body {
 .brand {
   color: #fff;
   font-weight: 700;
-  font-size: 2rem; /* 👈 bigger */
+  font-size: 2rem;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 .main-nav a {
@@ -44,7 +44,7 @@ body {
   margin-left: 20px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 1.05rem; /* 👈 bigger */
+  font-size: 1.05rem;
   padding: 8px 14px;
   border-radius: 6px;
   transition: all 0.3s ease;
@@ -65,12 +65,12 @@ body {
   align-items: center;
 }
 .hero-content h1 {
-  font-size: 3rem; /* 👈 bigger */
+  font-size: 3rem;
   margin-bottom: 25px;
   text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
 }
 .hero-content .lead {
-  font-size: 1.4rem; /* 👈 bigger */
+  font-size: 1.4rem;
   color: #e5e7eb;
   margin-bottom: 15px;
 }
@@ -79,7 +79,7 @@ body {
   background: rgba(0, 0, 0, 0.5);
   padding: 12px;
   border-radius: 6px;
-  font-size: 1.1rem; /* 👈 bigger */
+  font-size: 1.1rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 .btn {
@@ -88,7 +88,7 @@ body {
   background: #0b6efd;
   color: #fff;
   font-weight: 600;
-  font-size: 1.1rem; /* 👈 bigger */
+  font-size: 1.1rem;
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
@@ -101,7 +101,7 @@ body {
 /* Values */
 .values h2 {
   text-align: center;
-  font-size: 2.4rem; /* 👈 bigger */
+  font-size: 2.4rem;
   margin-bottom: 40px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
@@ -122,25 +122,19 @@ body {
   transform: translateY(-5px);
 }
 .values-grid h3 {
-  font-size: 1.6rem; /* 👈 bigger */
+  font-size: 1.6rem;
   margin-bottom: 12px;
 }
 .values-grid p {
-  font-size: 1.1rem; /* 👈 bigger */
+  font-size: 1.1rem;
   color: #d1d5db;
 }
 
 /* Team */
 .team h2 {
   text-align: center;
-  font-size: 2.4rem; /* 👈 bigger */
+  font-size: 2.4rem;
   margin-bottom: 10px;
-}
-.team .muted {
-  text-align: center;
-  margin-bottom: 40px;
-  color: #d1d5db;
-  font-size: 1.1rem;
 }
 .team-grid {
   display: grid;
@@ -159,7 +153,7 @@ body {
   transform: translateY(-5px);
 }
 .member img {
-  width: 180px; /* 👈 bigger */
+  width: 180px;
   height: 180px;
   border-radius: 50%;
   object-fit: cover;
@@ -167,7 +161,7 @@ body {
   border: 3px solid #0b6efd;
 }
 .member h4 {
-  font-size: 1.3rem; /* 👈 bigger */
+  font-size: 1.3rem;
   margin-bottom: 5px;
 }
 .member .role {
@@ -183,7 +177,7 @@ body {
   margin-top: 60px;
 }
 .contact-cta h3 {
-  font-size: 2rem; /* 👈 bigger */
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 .contact-cta p {
@@ -222,13 +216,4 @@ body {
 }
 .site-footer a:hover {
   color: #0b6efd;
-}
-
-.highlight-text {
-  font-size: 28px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  color: #333;
-  text-align: center;
-  margin-top: 30px;
 }
