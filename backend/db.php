@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; // default WAMP password blank
+$password = ""; 
 $database = "online_business_db";
 
 // Create connection
