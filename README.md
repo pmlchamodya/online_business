@@ -1,2 +1,1 @@
-hello business
-hello friends
+hello 
